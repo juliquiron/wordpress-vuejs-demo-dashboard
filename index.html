@@ -25,61 +25,27 @@
         <v-content>
           <v-container :fluid="true">
             <div id="getting-started">
-              <v-card class="secondary">
-                <v-card-text class="text-xs-center">
-                  <img src="v.png">
-                </v-card-text>
-              </v-card>
-              <p class="text-xs-center">Welcome to the Vuetify Simple Template</p>
-              <h2 class="primary--text">Important Links</h2>
-              <div class="intro">
-                <v-list>
-                  <v-list-item>
-                    <v-list-tile href="http://vuetifyjs.com" target="_blank">
-                      <v-list-tile-title>
-                        Vuetify Documentation
-                      </v-list-tile-title>
-                    </v-list-tile>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-tile href="https://github.com/vuetifyjs/webpack-ssr" target="_blank">
-                      <v-list-tile-title>
-                        Vuetify SSR Webpack
-                      </v-list-tile-title>
-                    </v-list-tile>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-tile href="https://github.com/vuetifyjs/webpack" target="_blank">
-                      <v-list-tile-title>
-                        Vuetify Webpack
-                      </v-list-tile-title>
-                    </v-list-tile>
-                  </v-list-item>
-                </v-list>
-                <v-list>
-                  <v-list-item>
-                    <v-list-tile href="https://github.com/vuetifyjs/webpack-simple" target="_blank">
-                      <v-list-tile-title>
-                        Vuetify Webpack Simple
-                      </v-list-tile-title>
-                    </v-list-tile>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-tile href="http://vuejs.org" target="_blank">
-                      <v-list-tile-title>
-                        Vue Documentation
-                      </v-list-tile-title>
-                    </v-list-tile>
-                  </v-list-item>
-                  <v-list-item>
-                      <v-list-tile href="https://github.com/vuejs/awesome-vue" target="_blank">
-                        <v-list-tile-title>
-                          Vue Awesome
-                        </v-list-tile-title>
-                      </v-list-tile>
-                  </v-list-item>
-                </v-list>
-              </div>
+              <v-row>
+                <v-col xs6>
+                  <v-card>
+                    <v-toolbar class="white--text indigo">
+                      <v-toolbar-title>Top products</v-toolbar-title>
+                    </v-toolbar>
+                    <v-list>
+                      <v-list-item v-for="item in topProducts">
+                        <v-list-tile avatar>
+                          <v-list-tile-content>
+                            <v-list-tile-title v-text="item.post_title" />
+                          </v-list-tile-content>
+                          <v-list-tile-avatar>
+                            <span>{{ item.brand }}--{{ item.total_sales }}</span>
+                          </v-list-tile-vatar>
+                        </v-list-tile>
+                      </v-list-item>
+                    </v-list>
+                  </v-card>
+                </v-col>
+              </v-row>
             </div>
           </v-container>
         </v-content>
@@ -96,9 +62,23 @@
       el: '#app',
 
       data: {
-        item: {
-          text: 'Get Started'
-        }
+          topProducts: {
+            product1: {
+              post_title: "Nombre del producto",
+              brand: "Marca",
+              total_sales: "123"
+            },
+            product2: {
+              post_title: "Nombre del producto",
+              brand: "Marca",
+              total_sales: "123"
+            },
+            product3: {
+              post_title: "Nombre del producto",
+              brand: "Marca",
+              total_sales: "123"
+            }
+          }
       }
     })
   </script>
